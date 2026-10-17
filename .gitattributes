@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.skill binary
+/.github export-ignore
+/tests export-ignore
+/reports export-ignore
+/human-please/evals export-ignore

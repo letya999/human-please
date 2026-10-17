@@ -1,0 +1,1 @@
+User: Please give a literal ordered sequence, one concrete example, no metaphors. Assistant: The request succeeded but its reply was lost; retrying may charge again. User: Now I get it, this format helps.

@@ -30,6 +30,8 @@ For analogy, choose a domain supported by the reader profile. Show which part co
 
 For work status, cover only relevant slots: what changed, what it means for the user, what was actually verified, what remains, and any decision required from the reader. Passing isolated tests does not prove a live integration. A proposed fix does not prove the root cause. Keep facts and assumptions distinguishable in ordinary prose. Do not invent time estimates, costs, certainty, durations or guarantees to make the explanation feel complete.
 
+Keep message identity separate from business identity: receiving or saving a purchase event is not itself making or saving a purchase. Explain only the action established by the source. Likewise, serializing two attempts establishes their order, not that stale data is refreshed correctly. Before sending, trace each claimed outcome to its stated evidence; if no evidence establishes the outcome, name it as unverified rather than completing the causal chain by assumption.
+
 ## Repair a failed explanation
 
 Use the reader's latest reaction as evidence. Find the failure: unknown word, missing prerequisite, unclear actor, unexplained cause, unsuitable example, excessive depth or missing big picture. Change that part of the route. For "I lost the thread", rebuild the map before discussing details. For "the metaphor did not help", use a literal worked example. For "why?", reveal the missing causal step.

@@ -1,7 +1,10 @@
 ---
 name: human-please
 description: >
-  Adaptive explanations in the reader's language, grounded in their knowledge and preferences. Use when someone asks for plain language, says an explanation did not land, or needs a situation, project, session, concept or decision made understandable: "поясни по-простому", "объясни чистым языком", "поясни доступно", "я тупой, объясни", "я ничего не понял, давай нормально", "объясни нетехнарю", "объясни неайтишнику", "explain simply", "explícamelo sencillo", or equivalent intent in any language, even without naming this skill. Do NOT use for implementation-only requests, literal translation, quoted trigger phrases, or an explicit request for raw technical detail.
+  Adaptive explanations in the reader's language, grounded in their knowledge and preferences. Use when someone asks to "explain simply", "use plain language", "explain to a nontechnical person", says "I am lost", "I understood nothing", "explain like I am dumb", or needs a project, session, concept or decision made understandable, including equivalent requests in any language and misspellings, even without naming this skill. Do NOT use for implementation-only requests, literal translation, quoted trigger phrases, or an explicit request for raw technical detail.
+license: MIT
+metadata:
+  version: "0.2.0"
 ---
 
 # Human, please
@@ -10,15 +13,15 @@ Explain to this person, about this question. Preserve accuracy while changing th
 
 ## Understand the reader
 
-Read [context and preferences](references/context.md). Use the current conversation first; resolve missing preferences through scoped memory and 3 → 5 → 8 recent user sessions. Ask one targeted question if a consequential gap remains. Keep the reader profile temporary.
+Use the current conversation to identify language, topic knowledge and purpose. If one is missing or conflicting, read [context and preferences](references/context.md). Its bounded memory/history search prevents guessing while limiting unrelated reads. Keep the reader profile temporary.
 
 ## Choose the explanation
 
-Read [explanation methods](references/methods.md). Match the method to the missing understanding and the reader's purpose. Ground project/session claims in current evidence. Distinguish observed facts, reports, inferences and unknowns.
+For a failed explanation, unfamiliar mechanism, session recap or decision, read [explanation methods](references/methods.md). Match the method to the missing understanding. Preserve the source's actors, events, business objects, conditions and uncertainty; changing these changes the answer.
 
 ## Choose the form
 
-Read [visuals and tools](references/visuals.md). Match the form to the relationships being explained and the current surface's actual capabilities.
+For a requested visual or relationships that prose hides, read [visuals and tools](references/visuals.md). Otherwise use text. Skip references whose conditions are absent; extra reading delays a straightforward explanation.
 
 ## Deliver and repair
 

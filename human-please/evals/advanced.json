@@ -1,0 +1,75 @@
+{
+  "skill_name": "human-please",
+  "evals": [
+    {
+      "id": 1,
+      "name": "message-versus-entity",
+      "category": "general",
+      "prompt": "Current user: I manage support operations, not databases. Explain simply why deleting one incoming message must not delete the customer order. Source facts: inbox_messages.id identifies a delivery attempt; payload.order_id identifies the business order. Two different message ids can refer to the same order_id. Delivery attempts can be retried. No project files or history are needed.",
+      "expected_output": "An accurate, reader-adapted explanation grounded only in available evidence.",
+      "expectations": [
+        "Distinguishes a delivery/message identifier from the identity of the business order.",
+        "Explains that retries or multiple messages can concern one order and deleting a message does not authorize deleting that order.",
+        "Uses accessible wording without falsely equating duplicate delivery with duplicate orders."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "progressive-memory",
+      "category": "general",
+      "prompt": "Current user: Explain this simply in a way that works for me: why can we not safely retry every payment automatically? Source facts: an external payment might succeed while its acknowledgement is lost; retrying without a stable payment identifier can charge twice. Reader preferences are unavailable in this conversation. A synthetic authorized history API for the current user is available via fixture files in fixtures/advanced/progressive-memory/history/. Sessions 1-3 are most recent, then 4-5, then 6-8. Read available history when useful; session numbers are chronology, not quality rankings.",
+      "expected_output": "An accurate, reader-adapted explanation grounded only in available evidence.",
+      "expectations": [
+        "Continues past initial three sessions when they do not resolve the missing explanation preference.",
+        "Uses the stable preference supported by later successful feedback: literal sequence with one concrete example, without metaphors.",
+        "Explains lost acknowledgement and repeated charge risk accurately without unnecessary personal conclusions."
+      ],
+      "files": [
+        "fixtures/advanced/progressive-memory/history/session-1.md",
+        "fixtures/advanced/progressive-memory/history/session-2.md",
+        "fixtures/advanced/progressive-memory/history/session-3.md",
+        "fixtures/advanced/progressive-memory/history/session-4.md",
+        "fixtures/advanced/progressive-memory/history/session-5.md",
+        "fixtures/advanced/progressive-memory/history/session-6.md",
+        "fixtures/advanced/progressive-memory/history/session-7.md",
+        "fixtures/advanced/progressive-memory/history/session-8.md"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "explicit-language-override",
+      "category": "general",
+      "prompt": "Current user: Explique-moi simplement en français pourquoi deux demandes simultanées peuvent écraser une modification. Je comprends les tableaux partagés, mais pas le code. Stale memory supplied for context: USER.md says always answer in English, prefers technical Go details. Current source facts: two people read the same old value; both compute a new value independently; last write replaces first write.",
+      "expected_output": "An accurate, reader-adapted explanation grounded only in available evidence.",
+      "expectations": [
+        "Answers in French according to the current explicit request.",
+        "Uses the current shared-table knowledge as an explanation bridge.",
+        "Preserves the two-read/two-write cause rather than blaming random corruption."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "required-source-unavailable",
+      "category": "general",
+      "prompt": "Current user: Explain simply whether the import ran successfully today and what is still unfinished. Tool availability: optional prior chat history is unavailable. The required current import run report is also unavailable: reports/today.json cannot be read and no current log/code/check result is supplied. An older assistant message claimed yesterday that import was fixed. Do not execute imports or change files.",
+      "expected_output": "An accurate, reader-adapted explanation grounded only in available evidence.",
+      "expectations": [
+        "Does not present current import success or remaining work as verified without the current required evidence.",
+        "Identifies the missing current report or equivalent current evidence needed for a grounded answer.",
+        "Treats unavailable optional history differently from missing evidence needed to answer current status."
+      ]
+    },
+    {
+      "id": 5,
+      "name": "clear-context-no-extra-reads",
+      "category": "general",
+      "prompt": "Current user: Explain simply in English, in two or three sentences, with no metaphors. I know spreadsheets. Here is the complete issue: two people open a shared sheet showing stock=10; each sells one item and saves stock=9, so recorded stock is 9 although it should be 8. We added a rule that makes each sale update the latest stock value in turn. A real simultaneous-sales check now records 8. Explain what changed and what that check proves. No other project state is being asked about.",
+      "expected_output": "An accurate, reader-adapted explanation grounded only in available evidence.",
+      "expectations": [
+        "Answers directly using the supplied context without seeking unrelated memory/history or loading unnecessary reference detail.",
+        "Explains before/after behavior and the specific simultaneous-sales check without claiming all possible sales cases are verified.",
+        "Respects English, two or three sentences, literal language, and no metaphors."
+      ]
+    }
+  ]
+}

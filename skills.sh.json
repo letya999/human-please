@@ -1,0 +1,11 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Understand",
+      "description": "Clear explanations adapted to the person, question and available tools.",
+      "skills": ["human-please"]
+    }
+  ]
+}
