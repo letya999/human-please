@@ -4,6 +4,7 @@ This repository currently tracks human-please and its maintenance files. Other s
 
 ## Human-please scope
 
+- Branch from the default `dev`. Merge changes into `dev`; only a pull request from this repository's `dev` may enter protected `main`. Never push directly to `main` or bypass its required checks.
 - Read README.md, CONTRIBUTING.md and docs/testing.md before changing the skill or release tooling.
 - Keep SKILL.md a short map; put method, context and visualization details in its existing references.
 - Write runtime instructions and contributor documentation in English. Maintain README.ru.md as the Russian user guide; keep multilingual evaluation utterances in synthetic fixtures.

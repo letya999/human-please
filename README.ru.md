@@ -104,7 +104,7 @@ npx skills@1.7.2 add letya999/human-please --list
 
 ## Участие в разработке
 
-Ветки: **feature → dev → main**. Стабильная ветка по умолчанию — `main`. Для локальных проверок достаточно Python 3.12+:
+Ветки: **feature → dev → main**. По умолчанию открывается `dev`. Защищённая `main` принимает изменения только через PR из `dev` этого репозитория, после успешных проверок. Короткая команда установки использует `dev`; стабильную ветку можно установить командой `npx skills@1.7.2 add https://github.com/letya999/human-please/tree/main --skill human-please`. Для локальных проверок достаточно Python 3.12+:
 
 ```sh
 python -m json.tool skills.sh.json

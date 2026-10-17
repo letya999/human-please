@@ -113,7 +113,7 @@ Local packaging tests passed. CI checks packaging on Linux and Windows and runs 
 
 ## Develop and contribute
 
-Changes flow **feature branch → dev → main**. `main` is the stable default branch. Python 3.12+ and its standard library are sufficient for maintenance:
+Changes flow **feature branch → dev → main**. `dev` is the default development branch. Protected `main` accepts release PRs only from this repository's `dev`, with passing checks. The short install command follows `dev`; for the stable track use `npx skills@1.7.2 add https://github.com/letya999/human-please/tree/main --skill human-please`. Python 3.12+ and its standard library are sufficient for maintenance:
 
 ```sh
 python -m json.tool skills.sh.json
