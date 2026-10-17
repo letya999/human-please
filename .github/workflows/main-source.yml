@@ -1,0 +1,19 @@
+name: Main source policy
+
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+
+permissions: {}
+
+jobs:
+  main-from-dev:
+    runs-on: ubuntu-latest
+    steps:
+      # Validate trusted event metadata without checking out or executing PR code.
+      - name: Reject any source other than this repository's dev
+        if: ${{ github.event.pull_request.head.ref != 'dev' || github.event.pull_request.head.repo.id != github.event.repository.id }}
+        run: |
+          echo '::error::main accepts pull requests only from this repository dev branch.'
+          exit 1
