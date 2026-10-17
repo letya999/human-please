@@ -2,16 +2,16 @@
 
 ## What is prepared
 
-The publication target is [letya999/human-please](https://github.com/letya999/human-please). It contains a discoverable `human-please/SKILL.md`, MIT license, English and Russian user guides, synthetic evaluations, read-only CI and a package command. `main` is the stable default branch; changes flow through feature branches into `dev`, then `main`. Commands below use `OWNER/REPOSITORY` as a template for future maintainers; this project's value is `letya999/human-please`.
+The publication target is [letya999/human-please](https://github.com/letya999/human-please). It contains a discoverable `human-please/SKILL.md`, MIT license, English and Russian user guides, synthetic evaluations, read-only CI and a package command. `dev` is the default development branch; protected `main` receives release PRs only from this repository's `dev`. Commands below use `OWNER/REPOSITORY` as a template for future maintainers; this project's value is `letya999/human-please`.
 
 ## Prepare a release
 
 1. Review the exact tracked file list. This workspace also contains independent local projects; publish only the intended committed content.
 2. Run the checks in CONTRIBUTING.md and inspect the built archive and checksum.
 3. Review the changelog and synchronize the manifest version before an intentional release. The first public release is version 0.2.0.
-4. Merge the reviewed feature into `dev`, then `main`, following the repository's chosen review policy.
+4. Merge the reviewed feature into `dev`, then open a `dev` → `main` release PR. All three packaging/discovery checks and `main-from-dev` must pass. The source check uses a trusted default-branch `pull_request_target` workflow and event metadata, no permissions, no checkout and no PR code execution. Main protection applies to administrators too; do not bypass it. After release, fast-forward `dev` to the main merge commit before starting another change.
 5. Select or create a public repository, verify its default branch, and publish only after the owner explicitly requests those external actions.
-6. Configure a private vulnerability reporting channel and optional branch protections on the selected host. Local files cannot enable these settings.
+6. Verify private vulnerability reporting and main branch protection on the selected host. Local files document these settings; the repository's GitHub configuration enforces them.
 
 After the public source exists, verify discovery without installing:
 

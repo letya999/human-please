@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Update pinned GitHub Actions to checkout 7.0.1, setup-python 7.0.0 and upload-artifact 7.0.2 after reviewing official releases and running CI.
+- Make dev the default branch and Dependabot target; require dev-only PRs and passing checks for protected main, including administrators.
+
 ## 0.2.0 - 2026-10-17
 
 - Write all skill instructions and trigger descriptions in English while retaining multilingual evaluation inputs.

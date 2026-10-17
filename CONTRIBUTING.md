@@ -16,7 +16,7 @@ The package command produces a reproducible `dist/human-please.skill` archive an
 
 ## Changes
 
-1. Branch from `dev`; keep each change focused.
+1. Branch from the default `dev`; keep each change focused and target its pull request at `dev`. Dependabot also targets `dev`. Release to protected `main` only through a pull request from this repository's `dev`, after all required checks pass. Direct pushes, force pushes and deletion of `main` are disabled, including for administrators. No approval count is required for the solo-maintainer workflow, but review conversations must be resolved.
 2. Write runtime instructions and contributor documentation in English. Keep README.ru.md aligned with the English user guide. Keep multilingual reader utterances in evaluation fixtures so language adaptation remains testable.
 3. Preserve the distinction between reader preferences and facts about a system. Keep history reads bounded and restricted to the current user.
 4. Add or improve a meaningful evaluation when explanation behavior changes. Compare in fresh contexts; keep expectations hidden from executors.
