@@ -17,7 +17,7 @@ The package command produces a reproducible `dist/human-please.skill` archive an
 ## Changes
 
 1. Branch from `dev`; keep each change focused.
-2. Write all instructions and documentation in English. Keep multilingual reader utterances in evaluation fixtures so language adaptation remains testable.
+2. Write runtime instructions and contributor documentation in English. Keep README.ru.md aligned with the English user guide. Keep multilingual reader utterances in evaluation fixtures so language adaptation remains testable.
 3. Preserve the distinction between reader preferences and facts about a system. Keep history reads bounded and restricted to the current user.
 4. Add or improve a meaningful evaluation when explanation behavior changes. Compare in fresh contexts; keep expectations hidden from executors.
 5. Run the local checks and report unavailable CLI or rendering checks accurately.

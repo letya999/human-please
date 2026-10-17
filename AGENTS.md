@@ -6,7 +6,7 @@ This repository currently tracks human-please and its maintenance files. Other s
 
 - Read README.md, CONTRIBUTING.md and docs/testing.md before changing the skill or release tooling.
 - Keep SKILL.md a short map; put method, context and visualization details in its existing references.
-- Write instructions and contributor documentation in English. Multilingual user utterances belong in synthetic evaluation fixtures.
+- Write runtime instructions and contributor documentation in English. Maintain README.ru.md as the Russian user guide; keep multilingual evaluation utterances in synthetic fixtures.
 - Preserve topic-specific knowledge, current language preferences, known accessibility needs, scoped 3/5/8 history, and evidence limits.
 - Keep events/messages distinct from business objects. Never turn reported or isolated-test success into verified integration success.
 - Use skill-conductor for behavior changes: snapshot the prior version, freeze the evaluation split before results, keep held-out evidence out of editing, and compare fresh contexts. Report explicit activation separately from automatic CLI discovery.
