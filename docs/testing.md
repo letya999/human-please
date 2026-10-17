@@ -10,6 +10,10 @@
 
 The GitHub Actions workflow runs offline checks on Linux and Windows. A separate Linux step asks a pinned skills CLI to list the local skill with telemetry disabled. That step checks discovery only; it does not prove automatic activation for a user request.
 
+## Branch policy verification
+
+The required `main-from-dev` check accepts only `dev` from this repository; both the branch name and repository identity must match. It runs from the trusted default-branch workflow without checking out PR code. On 2026-10-17, [release PR #5](https://github.com/letya999/human-please/pull/5) passed this check, while [non-dev probe PR #6](https://github.com/letya999/human-please/pull/6) failed with the intended source-policy error and was closed without merging. This exercises real GitHub events for the accepted and rejected branch paths; no fork was created to test the separate repository-identity condition. GitHub protection requires this check, the three packaging/discovery checks and a PR, with administrator enforcement and no force push or deletion.
+
 ## Explanation evaluations
 
 Use skill-conductor for changes to instructions:
