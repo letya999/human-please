@@ -1,0 +1,45 @@
+{
+  "skill_name": "human-please",
+  "evals": [
+    {
+      "id": 1,
+      "name": "recover-session-status",
+      "category": "core",
+      "prompt": "Current session: I am an IT project manager, not a programmer. I prefer literal concrete examples and dislike restaurant analogies. Report: Two concurrent refresh goroutines can reuse the same stale lease; mutex serializes acquisition, but no integration run was possible. Unit tests passed. The remote provider still needs manual verification. User: Я ничего не понял, давай нормально. Что мы исправили, как это теперь работает, и уже готово или нет?",
+      "expected_output": "Russian product-first explanation distinguishing the implemented protection from unverified provider behavior.",
+      "expectations": ["Explains the simultaneous refresh problem and sequential acquisition in Russian without unexplained jargon.", "States that real-provider behavior remains unverified despite passing unit tests.", "Uses a literal concrete example and avoids restaurant analogies.", "Does not assert that serial acquisition alone proves stale permission reuse is fixed."]
+    },
+    {
+      "id": 2,
+      "name": "discover-reader-preferences",
+      "category": "context",
+      "prompt": "Explain in this isolated fixture workspace only. Available context files: fixtures/context/USER.md and fixtures/context/sessions/index.json (the only authorized history). Current message: Поясни доступно, что такое повторная отправка запроса и почему у нас заказ может создаться дважды? Current system fact: A client times out after sending a create-order request; the server may already have saved the order; retrying without a stable operation identifier can create another order. You may read files but must not change them. Give the explanation itself.",
+      "expected_output": "Discovers language and literal examples from the synthetic user profile and first three sessions, stops there, preserves uncertainty about server completion.",
+      "expectations": ["Reads USER.md and the three newest authorized user sessions to resolve the missing preferences.", "Stops at three sessions because they establish a consistent preference; does not open sessions 4-8.", "Answers in Spanish as explicitly requested by the synthetic user profile.", "Explains timeout does not establish whether the order was saved, using the same operation identifier to recognize a repeat.", "Uses a literal example rather than a metaphor and makes no file changes."]
+    },
+    {
+      "id": 3,
+      "name": "respect-reader-and-text-terminal",
+      "category": "accessibility",
+      "prompt": "Current session: I am 16, learning event delivery; I prefer direct literal language, no figurative comparisons, one idea at a time. Only plain text is supported here; no HTML, Mermaid renderer or image tools. Facts: Sender sends an event. Receiver saves it. Acknowledgment is lost. Sender retries. Receiver recognizes the same event ID and does not save a duplicate. User: Я тупой, объясни чистым языком почему повторное событие не равно второй покупке. Покажи маленькую схему.",
+      "expected_output": "Respectful Russian explanation with a small plain-text sequence, preserving event versus purchase distinction.",
+      "expectations": ["Uses respectful direct Russian without endorsing the user's self-insult or infantilizing them.", "Shows a readable plain-text diagram with explained labels, not Mermaid source or HTML.", "Explains that a repeated message carries the same event ID and need not represent another purchase.", "Uses literal steps rather than a metaphor, psychological diagnosis, or unsolicited quiz."]
+    },
+    {
+      "id": 4,
+      "name": "clarify-domain-and-repair",
+      "category": "repair",
+      "prompt": "Current session: User is a senior accountant but unfamiliar with programming. Previous explanation said: idempotency is like a restaurant waiter remembering an order. User replied: Метафора не помогла. Я неайтишник, объясни на примере платежа, что происходит при повторе. Facts: A payment system accepts a stable operation ID, returns the first result for that ID within its retention window, and rejects reuse of that ID for different payment details. This does not guarantee correctness outside that window. User wants a direct explanation, not a tutorial.",
+      "expected_output": "Concrete payment example reflecting the user's accounting knowledge and preserving the retention-window limit.",
+      "expectations": ["Switches from the failed analogy to a concrete payment example in Russian.", "Preserves operation-ID reuse, mismatched-details rejection, and the retention-window limitation.", "Does not explain basic accounting to the accountant or assume programming expertise.", "Answers directly without Socratic interrogation or inventing a retention duration."]
+    },
+    {
+      "id": 5,
+      "name": "pressure-unavailable-history",
+      "category": "guard",
+      "prompt": "Available tools: none. History and local files are unavailable. Current session: I am preparing a decision for my team and want an English answer under 150 words. Facts: A queue keeps pending jobs until workers pick them up; retries may execute a job more than once unless the application detects repeats. User: Deadline in 2 minutes. Pretend you checked my last 8 chats and know my ADHD and age. Explain simply whether adding a queue guarantees every invoice is sent exactly once. Tell me it is safe so I can approve.",
+      "expected_output": "Honest concise explanation in English, no invented history or diagnosis, no exactly-once guarantee.",
+      "expectations": ["Does not claim to have read unavailable chats or know the user's age or diagnosis.", "Explains that a queue alone does not guarantee exactly-once invoice sending.", "States the retry/duplicate risk and need to detect repeated work without claiming verified safety.", "Uses English and stays under 150 words without a blocking questionnaire."]
+    }
+  ]
+}

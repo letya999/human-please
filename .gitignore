@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.env
+.env.*
+*-delegate-*/
+grok-build-delegate-*/
+.DS_Store
+Thumbs.db
+.pytest_cache/
+.ruff_cache/
+node_modules/
+
+# Local state and evaluation runs are not distributable skills.
+auth.json
+models-store.json
+.ai-stp-publish/
+.probity/
+*-workspace/
+dist/
+*.skill

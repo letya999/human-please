@@ -1,0 +1,22 @@
+{
+  "positive": [
+    "Поясни по простому, что изменилось в работе сервиса после исправления.",
+    "Объясни чистым языком: что делает эта очередь и зачем она пользователю?",
+    "Я тупой, объясни почему повторная отправка иногда создаёт второй заказ.",
+    "Я ничего не понял, давай нормально: где мы сейчас и что осталось?",
+    "Объясни нетехнарю разницу между сохранением файла и его отправкой.",
+    "Объясни неайтишнику, что произошло с оплатой и что мы проверили.",
+    "Explain this error in plain language for someone who manages the project.",
+    "Explícamelo con palabras sencillas: ¿por qué aparece dos veces el pedido?",
+    "Explique simplement ce qui a changé et ce qui reste à vérifier.",
+    "Паясни доступно, я проджект и потерял нить этой сессии."
+  ],
+  "negative": [
+    "Implement duplicate-order protection and run the tests.",
+    "Rename explainNontechnical to explainForAudience in this source file.",
+    "Translate this already clear paragraph into Spanish without explanation.",
+    "The fixture string is 'я ничего не понял'. Preserve it exactly in the parser test.",
+    "List all goroutines in this profile; raw technical output only.",
+    "Design the project onboarding UI for nontechnical users."
+  ]
+}
